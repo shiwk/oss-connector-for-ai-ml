@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "osstables-lance-connector"
+version = "0.1.0"
+description = "Alibaba Cloud OssTables connector for Lance — SigV4-authenticated Lance Namespace implementation"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [{ name = "Alibaba Cloud" }]
+keywords = ["lance", "osstables", "namespace", "sigv4", "alibaba-cloud"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "lance-namespace>=0.8.0",
+    "lance-namespace-urllib3-client>=0.8.0",
+    "urllib3>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0"]
+
+[project.urls]
+Repository = "https://github.com/aliyun/oss-connector-for-ai-ml"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/osstables_lance_connector"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
